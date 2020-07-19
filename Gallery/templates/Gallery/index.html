@@ -1,0 +1,66 @@
+{% extends 'Gallery/base.html' %} {% load static %}{% block title %} LAY NAGAR {% endblock title %} {% block content %}
+<!-- Hero section  -->
+<div class="hero-section">
+
+    <div class="hero-slider owl-carousel">
+        {% for object in object_list %} {% ifequal 'nature' object.category|lower %}
+        <div class="hero-item portfolio-item set-bg" data-setbg="{{ object.image.url }}">
+            <a href="" class="hero-link">
+                <h2>{{object.title}}</h2>
+            </a>
+        </div>
+        {% endifequal %} {% endfor %}
+
+    </div>
+
+    <div class="hero-slider owl-carousel">
+        {% for object in object_list %} {% ifequal 'architecture' object.category|lower %}
+
+
+        <div class="hero-item portfolio-item set-bg" data-setbg="{{ object.image.url }}">
+            <a href="" class="hero-link">
+                <h2>{{object.title}}</h2>
+            </a>
+        </div>
+        {% endifequal %} {% endfor %}
+    </div>
+    <div class="hero-slider owl-carousel">
+        {% for object in object_list %} {% ifequal 'wildlife' object.category|lower %}
+
+
+        <div class="hero-item portfolio-item set-bg" data-setbg="{{ object.image.url }}">
+            <a href="" class="hero-link">
+                <h2>{{object.title}}</h2>
+            </a>
+        </div>
+        {% endifequal %} {% endfor %}
+    </div>
+    <div class="hero-social-links">
+        <a href=""><i class="fa fa-pinterest"></i></a>
+        <a href=""><i class="fa fa-facebook"></i></a>
+        <a href=""><i class="fa fa-twitter"></i></a>
+        <a href=""><i class="fa fa-dribbble"></i></a>
+        <a href=""><i class="fa fa-behance"></i></a>
+    </div>
+</div>
+<!-- Hero section end  -->
+
+<!-- Intro section   -->
+<section class="intro-section">
+    <div class="intro-warp">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-9 col-lg-7 p-0">
+                    <div class="intro-text">
+                        <h2>My name is Lay. I’m a Web Developer.</h2>
+                        <p>Welcome to my personal gallery!</p>
+                        <a href="#" class="sp-link">Take a look at mt portfolio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Intro section end  -->
+
+{% endblock content %}

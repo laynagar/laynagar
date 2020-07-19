@@ -1,0 +1,50 @@
+{% extends 'Gallery/base.html' %} {% load static %} {% block content %}
+
+<!-- Portfolio section  -->
+<div class="portfolio-section">
+    <ul class="portfolio-filter controls text-center">
+        <li class="control" data-filter="all">All</li>
+        {% for category in categories %}
+        <li class="control" data-filter=".{{category}}">{{category}}</li>
+        {% endfor %}
+
+    </ul>
+    <div class="row portfolio-gallery m-0">
+        {% for object in object_list %}
+        <div class="mix col-xl-2 col-md-3 col-sm-4 col-6 p-0 {{object.category}}">
+            <a href="{{ object.image.url }}" class="portfolio-item img-popup set-bg" data-setbg="{{ object.image.url }}"></a>
+        </div>
+        {% endfor %}
+
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <div class="mix col-xl-2 col-md-3 col-sm-4 col-6 p-0">
+                        <div class="portfolio-item  next-btn">
+                            <a href="?page={{ page_obj.previous_page_number }}">
+                                <h2>Previous</h2>
+                            </a>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if page_obj.has_next %}
+                <div class="mix col-xl-2 col-md-3 col-sm-4 col-6 p-0">
+                    <div class="portfolio-item  next-btn">
+                        <a href="?page={{ page_obj.next_page_number }}">
+                            <h2>Next</h2>
+                        </a>
+                    </div>
+                </div>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+</div>
+<center>
+    <span class="current">
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+    </span>
+
+</center>
+<!-- Portfolio section end  -->
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'Gallery/base.html' %} {% load static %} {% block content %}
+
+<!-- Portfolio section  -->
+<div class="portfolio-3-section">
+    <ul class="portfolio-filter controls text-center">
+        <li class="control" data-filter="all">All</li>
+        {% for category in categories %}
+        <li class="control" data-filter=".{{category}}">{{category}}</li>
+        {% endfor %}
+
+    </ul>
+    <div class="portfolio-grid portfolio-gallery nature">
+        <div class="grid-sizer">
+            <div class="grid-portfolio">
+                {% for object in object_list %}
+
+                <div class="mix grid-item {{object.category}}">
+                    <img src="{{ object.image.url }}" alt="">
+
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<!-- Portfolio section end  -->
+{% endblock content %}

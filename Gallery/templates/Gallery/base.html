@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>{% block title %} {% endblock title %}</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Photographer html template">
+    <meta name="keywords" content="photographer, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="shortcut icon" />
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" />
+
+    <!-- Main Stylesheets -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}   " />
+
+
+    <!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header section  -->
+    <header class="header-section">
+        <a href="{% url 'Gallery:index' %}" class="site-logo"><span style="color: black; font-size: xx-large;"><span style="font-weight: bolder;">L&#923;Y</span> NAGAR</span></a>
+        <div class="header-controls">
+            <button class="nav-switch-btn"><i class="fa fa-bars"></i></button>
+            <button class="search-btn"><i class="fa fa-search"></i></button>
+        </div>
+        <ul class="main-menu">
+            <li><a href="{% url 'Gallery:index' %}">Home</a></li>
+            <li><a href="{% url 'Gallery:about' %}">About</a></li>
+            <li>
+                <a href="#">Portfolio</a>
+                <ul class="sub-menu">
+                    <li><a href=" {% url 'Gallery:portfolio-1' %} ">Portfolio 1</a></li>
+                    <li><a href=" {% url 'Gallery:portfolio-2' %} ">Portfolio 2</a></li>
+                    <li><a href=" {% url 'Gallery:portfolio-3' %} ">Portfolio 3</a></li>
+                </ul>
+            </li>
+            <li><a href="{% url 'blog:post-list' %}">Blog</a></li>
+            <li><a href="{% url 'Gallery:contact' %} ">Contact</a></li>
+            <li class="search-mobile ">
+                <button class="search-btn "><i class="fa fa-search "></i></button>
+            </li>
+        </ul>
+    </header>
+    <div class="clearfix "></div>
+    <!-- Header section end  -->
+
+    {% block content %} {% endblock content %}
+
+    <!-- Footer section   -->
+    <footer class="footer-section" style=" flex-shrink: none;position: sticky;">
+        <div class="container-fluid ">
+            <div class="row ">
+                <div class="col-md-4 order-1 order-md-2 ">
+                    <div class="footer-social-links ">
+                        <a href=" "><i class="fa fa-pinterest "></i></a>
+                        <a href=" "><i class="fa fa-facebook "></i></a>
+                        <a href=" "><i class="fa fa-twitter "></i></a>
+                        <a href=" "><i class="fa fa-dribbble "></i></a>
+                        <a href=" "><i class="fa fa-behance "></i></a>
+                    </div>
+                </div>
+                <div class="col-md-8 order-2 order-md-1 ">
+                    <div class="copyright ">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        All rights reserved | All pictures uploaded here is captured by Lay Nagar | Copyright &copy;
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script> All rights reserved | <span class="mx-5 pl-5"> This template is made with <i class="fa fa-heart-o " aria-hidden="true "></i> by <a href="https://colorlib.com " target="_blank ">Colorlib</a></span>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer section end  -->
+
+    <!--====== Javascripts & Jquery ======-->
+    <script src="{% static 'js/jquery-3.2.1.min.js' %} "></script>
+    <script src="{% static 'js/bootstrap.min.js' %} "></script>
+    <script src="{% static 'js/jquery.slicknav.min.js' %} "></script>
+    <script src="{% static 'js/owl.carousel.min.js' %} "></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %} "></script>
+    <script src="{% static 'js/circle-progress.min.js' %} "></script>
+    <script src="{% static 'js/mixitup.min.js' %} "></script>
+    <script src="{% static 'js/instafeed.min.js' %} "></script>
+    <script src="{% static 'js/masonry.pkgd.min.js' %} "></script>
+    <script src="{% static 'js/main.js' %} "></script>
+
+</body>
+
+</html>

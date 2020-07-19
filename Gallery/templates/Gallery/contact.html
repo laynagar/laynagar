@@ -1,0 +1,47 @@
+{% extends 'Gallery/base.html' %} {% block title %} Contact {% endblock title %} {% block content %}
+
+<!-- Google Map end -->
+
+<!-- Contact section  -->
+<section class="contact-section my-5">
+    <div class="container my-3">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="contact-text">
+                    <h3>Get in touch</h3>
+                    <ul>
+                        <li>Nag Nagini Road, no 56, <br>Shajapur, Madhya Pradesh, 465001</li>
+                        <li>+91 7000 902 261</li>
+                        <li>layngr77@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <form class="contact-form" method="POST">
+                    {% csrf_token %} {% for field in form %}
+                    <div class="row">
+                        <div class="col-md-2">
+                            {{ field.label_tag }} {% if field.help_text %}
+                            <sup>{{ field.help_text }}</sup> {% endif %} {{ field.errors }}
+                        </div>
+                        <div class="col-md-10 pull-left">
+                            {{ field }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <input class="site-btn float-right" type="submit" value="send message">
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+<!-- Contact section end  -->
+
+<!-- Instagram section -->
+<!-- <div class="instagram-section">
+    <h6>Instagram Feed</h6>
+    <div id="instafeed" class="instagram-slider owl-carousel"></div> -->
+</div>
+<!-- Search model end -->
+{% endblock content %}

@@ -1,0 +1,51 @@
+{% extends 'Gallery/base.html' %} {% load static %} {% block title %} Gallery {% endblock title %} {% block content %}
+<!-- Portfolio section  -->
+<div class="portfolio-2-section">
+    <ul class="portfolio-filter controls text-center">
+        <li class="control" data-filter="all">All</li>
+        {% for category in categories %}
+        <li class="control" data-filter=".{{category}}">{{category}}</li>
+        {% endfor %}
+
+    </ul>
+    <div class="portfolio-warp">
+        <div class="row portfolio-gallery m-0">
+            {% for object in object_list %}
+
+            <div class="mix col-lg-4 col-sm-6 p-0 {{object.category}} ">
+                <div class="portfolio-box">
+                    <div class="portfolio-item set-bg" data-setbg="{{ object.image.url }}"></div>
+                    <h6>{{ object.title }}</h6>
+                    <p>{{ object.year }}</p>
+                </div>
+            </div>
+            {% endfor %}
+
+            <div class="site-pagination">
+                <span class="step-links">
+                        {% if page_obj.has_previous %}
+                            <div class="mix col-xl-2 col-md-3 col-sm-4 col-6 p-0">
+                                <div class="next-btn">
+                                    <a href="?page={{ page_obj.previous_page_number }}">
+                                        <h2> &lt;&lt;Previous</h2>
+                                    </a>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if page_obj.has_next %}
+                        <div class="mix col-xl-2 col-md-3 col-sm-4 col-6 p-0">
+                            <div class="next-btn">
+                                <a href="?page={{ page_obj.next_page_number }}">
+                                    <h2>Next&gt;&gt;</h2>
+                                </a>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </span>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Portfolio section end  -->
+{% endblock content %}
