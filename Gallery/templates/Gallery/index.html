@@ -3,37 +3,27 @@
 <div class="hero-section">
 
     <div class="hero-slider owl-carousel">
-        {% for object in object_list %} {% ifequal 'nature' object.category|lower %}
-        <div class="hero-item portfolio-item set-bg" data-setbg="{{ object.image.url }}">
-            <a href="" class="hero-link">
-                <h2>{{object.title}}</h2>
-            </a>
+        {% for i in r1 %}
+        <div class="hero-item portfolio-item set-bg" data-setbg="{% get_static_prefix %}tinified/{{i}}.jpeg">
+
         </div>
-        {% endifequal %} {% endfor %}
+        {% endfor %}
 
     </div>
 
     <div class="hero-slider owl-carousel">
-        {% for object in object_list %} {% ifequal 'architecture' object.category|lower %}
+        {% for i in r2 %}
+        <div class="hero-item portfolio-item set-bg" data-setbg="{% get_static_prefix %}tinified/{{i}}.jpeg">
 
-
-        <div class="hero-item portfolio-item set-bg" data-setbg="{{ object.image.url }}">
-            <a href="" class="hero-link">
-                <h2>{{object.title}}</h2>
-            </a>
         </div>
-        {% endifequal %} {% endfor %}
+        {% endfor %}
     </div>
     <div class="hero-slider owl-carousel">
-        {% for object in object_list %} {% ifequal 'wildlife' object.category|lower %}
+        {% for i in r3 %}
+        <div class="hero-item portfolio-item set-bg" data-setbg="{% get_static_prefix %}tinified/{{i}}.jpeg">
 
-
-        <div class="hero-item portfolio-item set-bg" data-setbg="{{ object.image.url }}">
-            <a href="" class="hero-link">
-                <h2>{{object.title}}</h2>
-            </a>
         </div>
-        {% endifequal %} {% endfor %}
+        {% endfor %}
     </div>
     <div class="hero-social-links">
         <a href=""><i class="fa fa-pinterest"></i></a>

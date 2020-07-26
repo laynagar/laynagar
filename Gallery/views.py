@@ -6,15 +6,18 @@ from django.urls import reverse_lazy
 
 
 
-class IndexView(ListView):
-    template_name = 'Gallery/index.html' 
-    model = PictureModel
-    paginate_by = 30
-
+class IndexView(TemplateView):
+    template_name = 'Gallery/index.html'
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        
+        context['r1'] = range(1,8)
+        context['r2'] = range(8,15)
+        context['r3'] = range(14,17)
+
         return context
+    
+
 
 class PortfolioView1(ListView):
     model = PictureModel
@@ -38,15 +41,6 @@ class PortfolioView2(ListView):
         context['categories'] = PictureCategoryModel.objects.distinct()
         return context
 
-class PortfolioView3(ListView):
-    model = PictureModel
-    # paginate_by = 10  
-    template_name = 'Gallery/portfolio-2.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['categories'] = PictureCategoryModel.objects.distinct()
-        return context
 
 class Contact(FormView):
     template_name = 'Gallery/contact.html'
